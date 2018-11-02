@@ -1,10 +1,10 @@
 # CellView_server-modeの作成(2018.11.01~)
 
-###目標
+### 目標
 CellViewをindraやsiva内のfileを選択できるようにする。
 
-###方法
-#####既存のCellViewのコードを変更する
+### 方法
+##### 既存のCellViewのコードを変更する
 (1)フォークして(Git hubのmohanbolisetty/CellView からSuzuk1/CellViewへ)  
 (2)indar側でgit clone  
 (3)docker runでマウント元をcloneしてきたものにして実行  
@@ -16,12 +16,12 @@ CellViewをindraやsiva内のfileを選択できるようにする。
 ---(5)~(8)繰り返す---  
 (9)完成したらGit publicにup  
 
-###使用したもの
+### 使用したもの
 shiny
 CellView
 docker
 
-####注意事項
+#### 注意事項
 * CellViewのみをrunApp()で直接起動しようとしてもremoteで動かす場合にはshiny serverが必要(これを含んだdockerが存在する)
 * dockerから動かそうとするとマウントしたdataを使う際にpermissionの問題が生じる。
 * CellViewはいくつかのRライブラリに依存しているので、それらのない環境では動かせない

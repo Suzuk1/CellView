@@ -1,4 +1,36 @@
-# CellView
+# CellView_server-modeの作成(2018.11.01~)
+
+###目標
+CellViewをindraやsiva内のfileを選択できるようにする。
+
+###方法
+#####既存のCellViewのコードを変更する
+(1)フォークして(Git hubのmohanbolisetty/CellView からSuzuk1/CellViewへ)  
+(2)indar側でgit clone  
+(3)docker runでマウント元をcloneしてきたものにして実行  
+(4)コードを変更して  
+(5)フォークした先にgit push(Suzuk1/CellView)  
+(6)またgit clone  
+(7)また実行  
+(8)また変更  
+---(5)~(8)繰り返す---  
+(9)完成したらGit publicにup  
+
+###使用したもの
+shiny
+CellView
+docker
+
+####注意事項
+* CellViewのみをrunApp()で直接起動しようとしてもremoteで動かす場合にはshiny serverが必要(これを含んだdockerが存在する)
+* dockerから動かそうとするとマウントしたdataを使う際にpermissionの問題が生じる。
+* CellViewはいくつかのRライブラリに依存しているので、それらのない環境では動かせない
+* indra内にはCellViewが動くようにしてあるdocker imageがある(dkomura/cellview_shiny)
+
+
+
+# CellView(fork元のREADME)
+
 
 ### A ShinyApp to visualize and explore single cell datasets
 
@@ -7,7 +39,6 @@ https://mbolisetty.shinyapps.io/CellView/
 
 A preprint describing this software is available on 
 [bioRxiv](https://www.biorxiv.org/content/early/2017/04/04/123810).
-
 
 ### Introduction
 
@@ -19,7 +50,6 @@ quickly explore and interactively analyze single cell transcriptomic data.
 - Analyze (co-)expression patterns within and among specific clusters.
 - Compute differential gene expression analysis on the-fly using interactive 
   sample selection.
-
 
 ### Usage
 

@@ -20,7 +20,11 @@ shinyServer(function(input, output) {
   # FUNCTIONS ------------------------------------------------------------------
   
   options(shiny.maxRequestSize = 2000 * 1024 ^ 2)
-  
+
+　output$file_list <- eventReactive(input$submit, {
+	paste(list.files(input$path),seq="\n")
+  })
+
   dataTables <- reactiveValues(
     log2cpm = NULL,
     tsne.data = NULL,

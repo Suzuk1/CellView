@@ -22,10 +22,10 @@ CellView(https://github.com/mohanbolisetty/CellView)
 docker  
 
 ### 実行コマンド
-indra:$docker run -it --rm -p 3838:3838 -v /home/kasane/git/cellView_indra_ver/CellView/:/srv/shiny-server/cellview  dkomura/cellview_shiny
-"/srv/shiny-server/cellview"は実行するfileのマウント先  
-"/var/log/shiny-server/"はlog fileのマウント先。マウントするとエラーコメントが見れる  
-適宜、「bash」を後ろにつけて操作  
+* indra:$docker run -it --rm -p 3838:3838 -v /home/kasane/git/cellView_indra_ver/CellView/:/srv/shiny-server/cellview  dkomura/cellview_shiny
+* "/srv/shiny-server/cellview"は実行するfileのマウント先  
+* "/var/log/shiny-server/"はlog fileのマウント先。マウントするとエラーコメントが見れる  
+* 適宜、「bash」を後ろにつけて操作  
 
 
 
@@ -34,10 +34,6 @@ indra:$docker run -it --rm -p 3838:3838 -v /home/kasane/git/cellView_indra_ver/C
 * dockerから動かそうとするとマウントしたdataを使う際にpermissionの問題が生じる。
 * CellViewはいくつかのRライブラリに依存しているので、それらのない環境では動かせない
 * indra内にはCellViewが動くようにしてあるdocker imageがある(dkomura/cellview_shiny)
-
-####実行時の注意
-
-
 
 # CellView(fork元のREADME)
 

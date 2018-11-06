@@ -49,6 +49,11 @@ shinyUI(
       fluidRow(column(
         5,
         offset = 4,
+
+	textInput("path", "検索したいpath(マウント先)を入力してください","/home/"),
+	actionButton("submit", "検索"),
+	verbatimTextOutput("file_list"),
+
         fileInput(
           'file1',
           'Choose .Rds file to upload',

@@ -50,24 +50,18 @@ shinyUI(
         5,
         offset = 4,
 
-	textInput("path", "検索したいpath(マウント先)を入力してください","/home/"),
-	actionButton("submit", "検索"),
+	textInput("path", "検索したいpath(マウント先)を入力してください","/"),
+	actionButton("serach", "検索"),
 	verbatimTextOutput("file_list"),
 
-        fileInput(
-          'file1',
-          'Choose .Rds file to upload',
-          accept = c(
-            '.Rds',
-            'text/comma-separated-values',
-            'text/tab-separated-values',
-            'text/plain',
-            '.csv',
-            '.tsv'
-          )
-        )
+	selectInput("file1", label = h3("Choose .Rds file to upload"), 
+   	choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3), 
+    	selected = 1),
+		
+	actionButton("submit", "Submit")
+
       )),
-      
+     
       fluidRow(
       column(5,offset='4',
              htmlOutput('summaryStats'))

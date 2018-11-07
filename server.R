@@ -21,8 +21,8 @@ shinyServer(function(input, output) {
   
   options(shiny.maxRequestSize = 2000 * 1024 ^ 2)
 
-　output$file_list <- eventReactive(input$submit, {
-	paste(list.files(input$path),seq="\n")
+　output$file_list <- eventReactive(input$serach, {
+	paste(list.files(input$path,full.names = TRUE),seq="\n")
   })
 
   dataTables <- reactiveValues(
@@ -96,7 +96,7 @@ shinyServer(function(input, output) {
   
   # INPUTS ------------------------------------------------------------------
   
-  data <- reactive({
+  data  <- eventReactive(input$submit,{
     inFile <- input$file1
     
     if (is.null(inFile))
@@ -122,7 +122,6 @@ shinyServer(function(input, output) {
     
     #cat(stderr(),grep('^T_',colnames(log2cpm)))
   })
-  
   
   # RENDER UI  ------------------------------------------------------------------
   output$clusters <- renderUI({
